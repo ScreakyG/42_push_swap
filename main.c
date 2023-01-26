@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 18:37:10 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/01/25 23:14:23 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/01/26 23:36:43 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,6 @@ int	main(int argc, char **argv)
 		exit_error(NULL, NULL);
 	stack_b = NULL;
 	stack_a = fill_stack_numbers(argc, argv);
+	stack_size = get_stack_size(stack_a);
+	assign_index(stack_a, stack_size + 1);
 }
