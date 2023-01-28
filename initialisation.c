@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:08:18 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/01/26 23:53:11 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/01/28 07:12:15 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 t_stack	*fill_stack_numbers(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	unsigned int	i;
+	int		i;
 	long	nb;
 
+	stack_a = NULL;
 	nb = 0;
 	i = 1;
 	while (i < argc)
@@ -26,7 +27,7 @@ t_stack	*fill_stack_numbers(int argc, char **argv)
 		nb = ft_atoi(argv[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
 			exit_error(&stack_a, NULL);
-		if (i = 1)
+		if (i == 1)
 			stack_a = stack_new((int)nb);
 		else
 			stack_add_bottom(&stack_a, stack_new((int)nb));
@@ -68,6 +69,6 @@ void	assign_index(t_stack *stack_a, int stack_size)
 				ptr = ptr->next;
 		}
 		if (highest != NULL)
-			ptr->index = stack_size;
+			highest->index = stack_size;
 	}
 }

@@ -1,6 +1,6 @@
 NAME = push_swap
-CFLAGS = -Wall -Werror -Wextra
-SRCS = main.c input_checker.c input_checker_utils.c utils.c initialisation.c stack.c
+CFLAGS = -Wall -Werror -Wextra -g
+SRCS = main.c input_checker.c input_checker_utils.c utils.c initialisation.c stack.c swap.c
 
 OBJS = ${SRCS:.c=.o}
 

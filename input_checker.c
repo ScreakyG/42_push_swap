@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 20:41:29 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/01/25 23:04:50 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/01/28 06:02:25 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	arg_is_number(char *argv)
 	unsigned int	i;
 
 	i = 0;
-	if (argv[i] == '-' || argv[i] == '+' && argv[i + 1] != '\0')
+	if ((argv[i] == '-' || argv[i] == '+') && argv[i + 1] != '\0')
 		i++;
 	while (argv[i])
 	{

@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 20:27:38 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/01/27 00:07:31 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/01/28 07:11:02 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 // Converti un char string en un long int.
 long int	ft_atoi(const char *argv)
 {
-	unsigned int	i;
+	int				i;
 	int				signe;
 	long int		resultat;
 
@@ -56,10 +56,22 @@ long int	ft_atoi(const char *argv)
 			signe *= -1;
 		i++;
 	}
-	while (argv[i] >= 0 || argv[i] <= 9)
+	while (argv[i] && (argv[i] >= '0' && argv[i] <= '9'))
 	{
-		resultat = resultat * 10 + (argv[i] - '0');
+		resultat = (resultat * 10) + (argv[i] - '0');
 		i++;
 	}
 	return (resultat * signe);
+}
+
+void	ft_putstr(char *str)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
 }
