@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 18:37:24 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/01/28 05:56:53 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/01/30 23:44:26 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,24 @@ t_stack		*fill_stack_numbers(int argc, char **argv);
 void		assign_index(t_stack *stack_a, int stack_size);
 
 //Sorting
-int	is_sorted(t_stack *stack);
+int		is_sorted(t_stack *stack);
+void	tiny_sort(t_stack **stack_a);
 
 //Operarations
 void	do_sa(t_stack **stack_a);
+void	do_ra(t_stack **stack_a);
+void	do_rb(t_stack **stack_b);
+void	do_rr(t_stack **stack_a, t_stack **stack_b);
+void	do_rra(t_stack **stack_a);
+void	do_rrb(t_stack **stack_b);
+void	do_rrr(t_stack **stack_a, t_stack **stack_b);
 
 // Stack fonctions
 int			get_stack_size(t_stack *stack_a);
 void		stack_add_bottom(t_stack **stack, t_stack *new);
 t_stack		*stack_new(int nb);
 t_stack		*get_stack_bottom(t_stack *stack);
+t_stack		*get_stack_before_bottom(t_stack *stack);
 
 //Input check
 int			is_correct_input(char **argv);

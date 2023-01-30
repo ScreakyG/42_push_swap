@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:27:25 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/01/26 21:13:07 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/01/30 23:32:06 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@ t_stack	*stack_new(int nb)
 	new->cost_b = -1;
 	new->next = NULL;
 	return (new);
+}
+
+t_stack *get_stack_before_bottom(t_stack *stack)
+{
+	t_stack *bottom;
+
+	while(stack && stack->next && stack->next->next)
+		stack = stack->next;
+	bottom = stack;
+	return (bottom);
 }
 
 //Renvoi le dernier element de la stack.
