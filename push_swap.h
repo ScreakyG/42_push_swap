@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 18:37:24 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/01/30 23:44:26 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/02/01 01:16:13 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,26 @@ void		assign_index(t_stack *stack_a, int stack_size);
 //Sorting
 int		is_sorted(t_stack *stack);
 void	tiny_sort(t_stack **stack_a);
+void	sort(t_stack **stack_a, t_stack **stack_b);
+
+//Position
+void	get_target_position(t_stack **stack_a, t_stack **stack_b);
+
+//Cost
+void	get_cost(t_stack **stack_a, t_stack **stack_b);
 
 //Operarations
 void	do_sa(t_stack **stack_a);
+void	do_sb(t_stack **stack_b);
+void	do_ss(t_stack **stack_a, t_stack **stack_b);
 void	do_ra(t_stack **stack_a);
 void	do_rb(t_stack **stack_b);
 void	do_rr(t_stack **stack_a, t_stack **stack_b);
 void	do_rra(t_stack **stack_a);
 void	do_rrb(t_stack **stack_b);
 void	do_rrr(t_stack **stack_a, t_stack **stack_b);
+void	do_pb(t_stack **stack_a, t_stack **stack_b);
+void	do_pa(t_stack **stack_a, t_stack **stack_b);
 
 // Stack fonctions
 int			get_stack_size(t_stack *stack_a);

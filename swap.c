@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 05:30:59 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/01/28 06:03:39 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/01/31 20:37:42 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,17 @@ void	do_sa(t_stack **stack_a)
 {
 	swap(*stack_a);
 	ft_putstr("sa\n");
+}
+
+void	do_sb(t_stack **stack_b)
+{
+	swap(*stack_b);
+	ft_putstr("sb\n");
+}
+
+void	do_ss(t_stack **stack_a, t_stack **stack_b)
+{
+	swap(*stack_a);
+	swap(*stack_b);
+	ft_putstr("ss\n");
 }

@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 18:37:10 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/01/30 20:58:14 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/01/31 19:19:50 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 		do_sa(stack_a);
 	if (stack_size == 3 && !is_sorted(*stack_a))
 		tiny_sort(stack_a);
-	(void)stack_b;
-
+	if (stack_size > 3 && !is_sorted(*stack_a))
+		sort(stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)

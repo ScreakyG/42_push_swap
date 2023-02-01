@@ -6,12 +6,15 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 23:06:55 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/01/30 23:44:13 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/01/31 19:17:13 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
+	Le dernier elelement de la stack devient le premier.
+*/
 static void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*bottom;
