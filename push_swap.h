@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 18:37:24 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/02/01 01:16:13 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/02/01 23:21:41 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,12 @@ int			nbstr_cmp(const char *argv1, const char *argv2);
 void		free_stack(t_stack **stack);
 long int	ft_atoi(const char *argv);
 void		ft_putstr(char *str);
+int			nb_abs(int nb);
 
 //Error
 void		exit_error(t_stack **stack_a, t_stack **stack_b);
 
+void	do_cheapest_move(t_stack **stack_a, t_stack **stack_b);
+void	do_move(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b);
+int		get_lowest_index_position(t_stack **stack);
 #endif

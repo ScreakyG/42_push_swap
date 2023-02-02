@@ -6,12 +6,17 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:20:00 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/02/01 01:18:04 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/02/01 23:25:23 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* push_all_save_three:
+*	Pushes all the elements of stack a into stack b, except the three last ones.
+*	Pushes the smaller values first, and then the larger values to help with
+*	sorting efficiency.
+*/
 static void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
 {
 	int	stack_size;
@@ -39,6 +44,45 @@ static void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
+/* shift_stack:
+*	After the bulk of the stack is sorted, shifts stack a until the lowest
+*	value is at the top. If it is in the bottom half of the stack, reverse
+*	rotate it into position, otherwise rotate until it is at the top of the
+*	stack.
+*/
+static void shift_stack(t_stack **stack_a)
+{
+	int lowest_index_pos;
+	int	stack_size;
+
+	stack_size = get_stack_size(*stack_a);
+	lowest_index_pos = get_lowest_index_position(stack_a);
+
+	if (lowest_index_pos > stack_size / 2)
+	{
+		while (lowest_index_pos < stack_size)
+		{
+			do_rra(stack_a);
+			lowest_index_pos++;
+		}
+	}
+	else
+	{
+		while (lowest_index_pos > 0)
+		{
+			do_ra(stack_a);
+			lowest_index_pos--;
+		}
+	}
+}
+
+/* sort:
+*	Sorting algorithm for a stack larger than 3.
+*		Push everything but 3 numbers to stack B.
+*		Sort the 3 numbers left in stack A.
+*		Calculate the most cost-effective move.
+*		Shift elements until stack A is in order.
+*/
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {
 	push_all_save_three(stack_a, stack_b);
@@ -49,4 +93,6 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 		get_cost(stack_a, stack_b);
 		do_cheapest_move(stack_a, stack_b);
 	}
+	if (!is_sorted(*stack_a))
+		shift_stack(stack_a);
 }

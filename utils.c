@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 20:27:38 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/01/28 07:11:02 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/02/01 22:10:01 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,16 @@ void	ft_putstr(char *str)
 		write(1, &str[i], 1);
 		i++;
 	}
+}
+
+/* nb_abs:
+*	Returns the absolute value of a given number.
+*	The absolute value of a number is used to measure the distance of that
+*	number from 0, whether it is positive or negative (abs value of -6 is 6).
+*/
+int	nb_abs(int nb)
+{
+	if (nb < 0)
+		return (nb *= -1);
+	return (nb);
 }

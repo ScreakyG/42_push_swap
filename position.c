@@ -6,7 +6,7 @@
 /*   By: fgonzale <fgonzale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:45:50 by fgonzale          #+#    #+#             */
-/*   Updated: 2023/02/01 00:51:00 by fgonzale         ###   ########.fr       */
+/*   Updated: 2023/02/02 01:02:56 by fgonzale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ static void	get_position(t_stack **stack)
 	while(tmp)
 	{
 		tmp->pos = position;
-		position++;
 		tmp = tmp->next;
+		position++;
 	}
 }
 
@@ -115,4 +115,30 @@ void	get_target_position(t_stack **stack_a, t_stack **stack_b)
 		tmp_b->target_pos = target_pos;
 		tmp_b = tmp_b->next;
 	}
+}
+
+/* get_lowest_index_position:
+*	Gets the current position of the element with the lowest index
+*	within a stack.
+*/
+int	get_lowest_index_position(t_stack **stack)
+{
+	t_stack	*tmp;
+	int	lowest_index;
+	int	lowest_pos;
+
+	tmp = *stack;
+	lowest_index = INT_MAX;
+	get_position(stack);
+	lowest_pos = tmp->pos;
+	while (tmp)
+	{
+		if (tmp->index < lowest_index)
+		{
+			lowest_pos = tmp->pos;
+			lowest_index = tmp->index;
+		}
+		tmp = tmp->next;
+	}
+	return (lowest_pos);
 }
